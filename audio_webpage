@@ -1,0 +1,164 @@
+<html>
+    <head>
+        <title>MUSIC WEBPAGE</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                font-family: sans-serif;
+            }
+            .container
+            {
+                width: 100%;
+                height: 100vh;
+                background-position: center;             
+                position: relative;
+                background-size: cover;
+               
+            }
+            .container img{
+                width: 100%;
+                height: 100%;
+                position: center;
+                margin: 0;
+                padding: 0;
+               
+            }
+            .navbar{
+                width: 88%;
+                margin: auto;
+                padding: 15px 0;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                position: absolute;
+                top: -500px;
+            }
+            .logo{
+                width: 140px;
+                cursor: pointer;
+            }
+            .navbar ul li{
+                list-style: none;
+                display: inline-block;
+                margin: 0 15px;
+            }
+            .navbar ul li a{
+                text-decoration: indianred;
+                color: goldenrod;
+                font-size: 20px;
+            }
+            .navbar ul li a:hover
+            {
+                color:blue;
+            }
+            
+             .ball
+            {
+                border-radius: 50%;
+                position: absolute;
+                top:5px;
+                
+                width: 50px;
+                height: 50px;
+                animation-name: jump;
+                animation-duration: 2s;
+                animation-iteration-count: infinite;
+                background: linear-gradient(25deg,blue,pink);
+            }
+            #b1{
+                background: linear-gradient(35deg,#ccffff,#ffcccc);
+                top: 25%;
+                animation-timing-function: ease-in;
+                
+            }
+            
+            #b2{
+                background: linear-gradient(35deg,#ccffff,#ffcccc);
+                bottom: 25%;
+                animation-timing-function: ease-out;
+                
+            }
+            
+            @keyframes jump
+            {
+                0%{top:50px;}
+                50%{top:175px;}
+                100%{top:270px;}
+            }
+            .content{
+                width: 100%;
+                position: absolute;
+                top: 50%;
+            }
+            .left{
+                margin-left: 20%;
+                color:palevioletred;
+                font-size:30px;
+                position: center;
+            }
+            .right{
+                float: right;
+                margin-right: 6%;
+                margin-top: 40px;
+                display: flex;align-items: center;
+            }
+            .right p{
+                 color: palevioletred;
+                 font-size: 25px;
+                 
+            }
+            #icon{
+                width: 80px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container"><img src="background.png"/> 
+            <div class="navbar">
+                <img src="logo.png" class="logo"/>
+                <ul>
+                    <li><a href="#"> HOME </a></li>
+                      <li><a href="#">ABOUT </a></li>
+                        <li><a href="#"> SPECIFICATIONS</a></li>
+                          <li><a href="#"> PRODUCTS </a></li>
+                            <li><a href="#"> CONNECT </a></li>
+                </ul>
+            </div>
+             <div class=" ball"> 
+                 <div class="ball" id="b1"></div>
+                  <div class="ball" id="b2"></div>   
+            </div>
+            <div class="content">
+                <div class="left">
+                    <h1><i>THE<br> MELODIOUS <br>SOUND</i></h1>
+                </div>
+                <div class="right">
+                    <p> <i> Click here to listen </i></p>
+                    <img src="play.png" id="icon"/>
+                </div>
+            </div>
+        </div>
+        <audio id="mysong">
+            <source src="mp3.song.mp3" type="audio/mp3">
+        </audio>
+        
+        <script>
+            var mysong=document.getElementById(mysong);
+            var icon =document.getElementById(icon);
+            icon.onclick = function(){
+                if(mysong.paused){
+                    mysong.play();
+                    icon.src="pause.png";
+                }
+                else{
+                    mysong.pause();
+                    icon.src="play.png";
+                }
+            }
+        </script>
+    </body>
+</html>
